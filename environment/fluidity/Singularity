@@ -10,8 +10,8 @@ MAINTAINER Thomas Green
 exec /bin/bash /bin/echo "Not supported"
 
 %post  
-yum install yum-utils
-yum-config-manager --add-repo http://fluidityproject.github.com/yum/fluidity-rhel7-mpich
-yum install fluidity
-yum install fluidity-dev
+yum -y install -y yum-utils
+yum-config-manager -y --add-repo http://fluidityproject.github.com/yum/fluidity-rhel7-mpich
+yum -y install fluidity
+yum -y install fluidity-dev
 
