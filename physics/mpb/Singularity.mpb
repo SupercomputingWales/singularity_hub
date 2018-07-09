@@ -1,0 +1,15 @@
+Bootstrap:docker  
+From:ubuntu:bionic-20180526
+
+%labels
+MAINTAINER Thomas Green
+
+%environment
+
+%runscript
+exec /bin/bash /bin/echo "Not supported"
+
+%post  
+apt-get install -y meep
+apt-get install -y mpb-mpi
+
