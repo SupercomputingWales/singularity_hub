@@ -1,0 +1,20 @@
+Bootstrap:docker  
+From:ubuntu:xenial-20180525
+
+%labels
+MAINTAINER Thomas Green
+
+%environment
+
+%runscript
+exec /bin/bash /bin/echo "Not supported"
+
+%post  
+apt-get update
+apt-get install -y software-properties-common
+add-apt-repository -y universe
+apt-get install -y meep
+apt-get install -y meep-mpi-default
+apt-get install -y mpb h5utils
+apt-get install -y mpb-mpi
+
