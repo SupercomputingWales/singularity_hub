@@ -43,7 +43,6 @@ python-numpy       \
 python-vigra       \
 python-wxgtk3.0    \
 python-zmq
-apt-get upgrade
 mkdir sw_install
 cd sw_install
 rm -rf CellProfiler
