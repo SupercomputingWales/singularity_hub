@@ -22,8 +22,8 @@ add-apt-repository -y universe
 # Update again
 apt-get update
 # Install requested applications.
-apt-get -y --force-yes install vim
-apt-get -y --force-yes install \
+apt-get install -y vim
+apt-get install -y \
 build-essential    \
 cython             \
 git                \
