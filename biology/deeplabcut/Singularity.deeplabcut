@@ -28,13 +28,11 @@ apt-get -y install python-wxgtk3.0
 apt-get -y install python3-tk
 
 # Install from pip
-pip install --upgrade pip
+pip3 install --upgrade pip
 
-pip install tensorflow-gpu==1.8
+pip3 install tensorflow-gpu==1.8
 
 pip3 install deeplabcut
-
-pip install ipywidgets
 
 pip3 install ipywidgets
 
