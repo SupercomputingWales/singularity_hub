@@ -13,4 +13,4 @@ exec /bin/bash /bin/echo "Not supported"
 
 mkdir /apps
 mkdir /scratch
-
+chmod ugo+x /usr/bin/irap
