@@ -1,5 +1,5 @@
 Bootstrap:docker  
-From:mylamour/tesseract-ocr:opencv
+From:tesseractshadow/tesseract4re
 
 %labels
 MAINTAINER Thomas Green
@@ -14,3 +14,15 @@ exec /bin/bash /bin/echo "Not supported"
 mkdir /scratch
 mkdir /apps
 
+# Update metadata on packages
+apt-get update
+# Install repo helper
+apt-get install -y software-properties-common
+# Run repo helper to install universe
+add-apt-repository -y universe
+# Install requested applications.
+apt-get install python-opencv
+apt-get install python3-opencv
+
+pip install pytesseract
+pip3 install pytesseract
