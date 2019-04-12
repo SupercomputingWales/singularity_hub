@@ -21,8 +21,8 @@ apt-get install -y software-properties-common
 # Run repo helper to install universe
 add-apt-repository -y universe
 # Install requested applications.
-apt-get install python-opencv
-apt-get install python3-opencv
+apt-get install -y python-opencv
+apt-get install -y python3-opencv
 
 pip install pytesseract
 pip3 install pytesseract
