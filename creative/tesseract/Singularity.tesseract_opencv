@@ -1,5 +1,5 @@
 Bootstrap:docker  
-From:tesseractshadow/tesseract4re
+From:valian/docker-python-opencv-ffmpeg:py3
 
 %labels
 MAINTAINER Thomas Green
@@ -20,11 +20,9 @@ apt-get update
 apt-get install -y software-properties-common
 # Run repo helper to install universe
 add-apt-repository -y universe
-# Install requested applications.
-apt-get install -y python-opencv
-apt-get install -y python3-opencv
-apt-get install -y python-pip
-apt-get install -y python3-pip
+add-apt-repository -y ppa:alex-p/tesseract-ocr
+apt-get update
+apt-get install -y tesseract-ocr-all
 
-pip install pytesseract
+# Install requested applications.
 pip3 install pytesseract
