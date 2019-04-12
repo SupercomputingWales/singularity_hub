@@ -23,6 +23,8 @@ add-apt-repository -y universe
 # Install requested applications.
 apt-get install -y python-opencv
 apt-get install -y python3-opencv
+apt-get install -y python-pip
+apt-get install -y python3-pip
 
 pip install pytesseract
 pip3 install pytesseract
