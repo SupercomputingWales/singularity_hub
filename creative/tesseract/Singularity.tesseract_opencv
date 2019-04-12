@@ -25,4 +25,6 @@ apt-get update
 apt-get install -y tesseract-ocr-all
 
 # Install requested applications.
+pip3 install pillow
 pip3 install pytesseract
+pip3 install imutils
