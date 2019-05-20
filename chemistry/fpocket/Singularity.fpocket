@@ -23,6 +23,7 @@ add-apt-repository -y universe
 apt-get install -y build-essential
 # Install requested applications.
 apt-get install -y libnetcdf-dev
+apt-get install -y git-core
 
 # Build the fpocket
 cd /tmp
