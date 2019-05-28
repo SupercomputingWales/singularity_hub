@@ -24,4 +24,3 @@ git clone https://github.com/Discngine/fpocket.git
 cd fpocket
 make 
 sudo make install
-
