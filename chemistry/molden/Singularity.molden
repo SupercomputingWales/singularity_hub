@@ -27,6 +27,7 @@ yum -y install libXmu-devel
 #Install software
 cd /tmp
 wget ftp://ftp.cmbi.umcn.nl/pub/molgraph/molden/molden5.9.tar.gz
+tar zxvf molden5.9.tar.gz
 cd molden5.9
 make 
 make install
