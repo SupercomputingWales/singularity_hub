@@ -30,5 +30,8 @@ cd /tmp
 wget ftp://ftp.cmbi.umcn.nl/pub/molgraph/molden/molden5.9.tar.gz
 tar zxvf molden5.9.tar.gz
 cd molden5.9
-make 
+# Remove use of sudo from makefile.
+sed -i 's/sudo //g' makefile
+
+make
 make install
