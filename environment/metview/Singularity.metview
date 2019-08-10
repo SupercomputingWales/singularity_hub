@@ -17,7 +17,7 @@ yum -y install yum-utils
 yum -y groupinstall "Base"
 yum -y groupinstall "Development Tools"
 
-#Install dependency
+# Install dependency
 cd /etc/yum.repos.d/
 wget https://download.opensuse.org/repositories/home:SStepke/CentOS_7/home:SStepke.repo
 yum install Metview
