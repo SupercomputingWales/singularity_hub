@@ -1,0 +1,24 @@
+Bootstrap:docker  
+From:centos:centos7.6.1810
+
+%labels
+MAINTAINER Thomas Green
+
+%environment
+
+%runscript
+exec /bin/bash /bin/echo "Not supported"
+
+%post  
+mkdir /apps
+mkdir /scratch
+
+yum -y install yum-utils
+yum -y groupinstall "Base"
+yum -y groupinstall "Development Tools"
+
+#Install dependency
+cd /etc/yum.repos.d/
+wget https://download.opensuse.org/repositories/home:SStepke/CentOS_7/home:SStepke.repo
+yum install Metview
+
