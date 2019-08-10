@@ -14,6 +14,7 @@ mkdir /apps
 mkdir /scratch
 
 yum -y install yum-utils
+yum -y install epel-release
 yum -y groupinstall "Base"
 yum -y groupinstall "Development Tools"
 
