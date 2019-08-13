@@ -14,6 +14,6 @@ exec /bin/bash /bin/echo "Not supported"
 mkdir /scratch 
 mkdir /software
 # From installation location
-zypper addrepo https://download.opensuse.org/repositories/home:SStepke/openSUSE_Leap_15.1/home:SStepke.repo
-zypper refresh
-zypper install Metview
+zypper -n addrepo https://download.opensuse.org/repositories/home:SStepke/openSUSE_Leap_15.1/home:SStepke.repo
+zypper -n refresh
+zypper -n install Metview
