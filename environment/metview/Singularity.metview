@@ -75,7 +75,7 @@ tar zxvf MetviewBundle-2019.07.1-Source.tar.gz
 
 mkdir /tmp/bld
 cd /tmp/bld
-cmake3 /tmp/src/MetviewBundle-2019.07.01-Source
+cmake3 /tmp/src/MetviewBundle-2019.07.1-Source
 make -j
 make install
 
