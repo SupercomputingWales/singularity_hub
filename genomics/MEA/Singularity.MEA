@@ -234,6 +234,7 @@ wget -q https://github.com/alexdobin/STAR/archive/2.5.1b.tar.gz && \
 # twoBitToFa
 ##########################################################################################
 
+mkdir -p /opt/2bit
 cd /opt/2bit
 wget -q  http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa && \
   chmod +x twoBitToFa
@@ -243,6 +244,7 @@ wget -q  http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/twoBitToFa && \
 # hubCheck
 ##########################################################################################
 
+mkdir -p /opt/hubCheck
 cd /opt/hubCheck
 wget -q  http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/hubCheck && \
   chmod +x hubCheck
