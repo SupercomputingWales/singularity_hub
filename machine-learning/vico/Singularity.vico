@@ -14,6 +14,7 @@ exec /bin/bash /bin/echo "Not supported"
 mkdir /scratch
 mkdir /apps
 
+. /etc/profile
 cd /tmp
 git clone https://github.com/BigRedT/vico
 conda env create -f vico/environment.yml
