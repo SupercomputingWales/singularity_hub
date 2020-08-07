@@ -1,4 +1,4 @@
-Bootstrap:docker  
+Bootstrap:docker
 From:ubuntu:eoan-20200608
 
 %labels
@@ -28,4 +28,3 @@ apt-key add winehq.key
 apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main'
 apt update
 apt install -y --install-recommends winehq-stable
-
