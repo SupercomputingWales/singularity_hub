@@ -16,5 +16,5 @@ mkdir /apps
 
 . /etc/profile
 cd /tmp
-conda install -c mrtrix3 mrtrix3
+conda install -c conda-forge k3d
 
