@@ -16,5 +16,6 @@ mkdir /apps
 
 . /etc/profile
 cd /tmp
+conda update -n base -c defaults conda
 conda install -c conda-forge k3d
 
