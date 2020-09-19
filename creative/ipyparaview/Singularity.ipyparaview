@@ -17,6 +17,8 @@ mkdir /apps
 . /etc/profile
 cd /tmp
 git clone https://github.com/NVIDIA/ipyparaview.git
-conda env create -f ipyparaview/environment.yml
+cd ipyparaview
+conda env create -f environment.yml
+./rebuild.sh
 
 
