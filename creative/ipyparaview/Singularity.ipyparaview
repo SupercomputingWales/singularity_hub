@@ -16,9 +16,10 @@ mkdir /apps
 
 . /etc/profile
 cd /tmp
-git clone https://github.com/NVIDIA/ipyparaview.git
+git clone https://github.com/SupercomputingWales/ipyparaview.git
 cd ipyparaview
 conda env create -f environment.yml
+conda activate ipy_pv_dev
 ./rebuild.sh
 
 
