@@ -18,6 +18,7 @@ apt-get update
 # Install repo helper
 apt-get install -y software-properties-common
 apt-get install -y wget
+apt-get install -y libgfortran5
 # Run repo helper to install universe
 add-apt-repository -y universe
 # Install requested applications.
