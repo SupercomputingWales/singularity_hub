@@ -24,7 +24,7 @@ apt-get install -y libgfortran5
 add-apt-repository -y universe
 # Install requested applications.  
 # Worth checking which versions of Wine are available for each Ubuntu release.
-# Seem to explicitly tell it to be non-interactive
+# Seem to explicitly tell it to be non-interactive.
 echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 dpkg --add-architecture i386
 cd /tmp
