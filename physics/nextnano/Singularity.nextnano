@@ -13,6 +13,7 @@ exec /bin/bash /bin/echo "Not supported"
 # Create some common mountpoints for systems without overlayfs
 mkdir /scratch
 mkdir /apps
+
 # Update metadata on packages
 apt-get update
 # Install repo helper
@@ -21,11 +22,14 @@ apt-get install -y wget
 apt-get install -y libgfortran5
 # Run repo helper to install universe
 add-apt-repository -y universe
-# Install requested applications.
+# Install requested applications.  
+# Worth checking which versions of Wine are available for each Ubuntu release.
+# Seem to explicitly tell it to be non-interactive.
+echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 dpkg --add-architecture i386
 cd /tmp
 wget -nc https://dl.winehq.org/wine-builds/winehq.key
 apt-key add winehq.key
 apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
-apt update
-apt install -y --install-recommends winehq-stable
+apt-get update
+apt-get install -y winehq-stable
