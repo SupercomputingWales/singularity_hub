@@ -1,0 +1,70 @@
+Bootstrap:docker  
+From:openfoam/openfoam7-paraview56
+
+%labels
+MAINTAINER Thomas Green
+
+%environment
+EIGEN_RHEO=/opt/eigen/ThirdParty/Eigen3.2.9
+PETSC_DIR=/opt/petsc/ThirdParty/petsc-3.13.3
+PETSC_ARCH=arch-linux2-c-opt
+export EIGEN_RHEO PETSC_DIR PETSC_ARCH OLDBASH
+
+%runscript
+exec /bin/bash /bin/echo "Not supported"
+
+%post -c /bin/bash
+# OpenFOAM expects bash - Singularity uses /bin/sh to exec scripts.
+
+# Create some common mountpoints for systems without overlayfs
+mkdir /scratch
+mkdir /apps
+
+# Source the bashrc for OpenFOAM
+. /opt/openfoam7/etc/bashrc
+
+# Install Git
+apt update
+apt install -y git
+
+# Install in /opt
+cd /opt
+
+# Clone the rheoTool repo
+git clone https://github.com/fppimenta/rheoTool.git
+
+# Match the version of OpenFOAM as Docker.
+cd rheoTool/of70
+
+# Change the variable used to install location.
+WM_PROJECT_USER_DIR_tmp=$WM_PROJECT_USER_DIR
+export WM_PROJECT_USER_DIR=/opt/eigen
+./downloadEigen
+export EIGEN_RHEO=/opt/eigen/ThirdParty/Eigen3.2.9
+
+# Change the variable used to install location
+export WM_PROJECT_USER_DIR=/opt/petsc
+# Remove sudo
+sed -i 's/^sudo //g' installPetsc
+# Make it non-interactive
+sed -i 's/apt-get install/apt-get install -y/g' installPetsc
+./installPetsc
+
+# Add Petsc to default library path
+cat >/etc/ld.so.conf.d/petsc.conf<<EOF
+/opt/petsc/ThirdParty/petsc-3.13.3/arch-linux2-c-opt/lib
+EOF
+ldconfig
+export PETSC_DIR=/opt/petsc/ThirdParty/petsc-3.13.3
+export PETSC_ARCH=arch-linux2-c-opt
+
+# Reset it back again
+export WM_PROJECT_USER_DIR=$WM_PROJECT_USER_DIR_tmp
+
+# Now compile rheoTool
+cd src
+# Change to install in site location, not user.
+find . -name options | while read item;  do   sed -i -e 's/FOAM_USER_/FOAM_SITE_/g' $item; done
+find . -name files | while read item; do sed -i -e 's/FOAM_USER_/FOAM_SITE_/g' $item; done
+# Now make.
+./Allwmake
