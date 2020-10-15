@@ -1,5 +1,5 @@
 Bootstrap:docker  
-From:openfoam/openfoam7-paraview56
+From:ubuntu:focal-20200925
 
 %labels
 MAINTAINER Thomas Green
@@ -8,24 +8,35 @@ MAINTAINER Thomas Green
 EIGEN_RHEO=/opt/eigen/ThirdParty/Eigen3.2.9
 PETSC_DIR=/opt/petsc/ThirdParty/petsc-3.13.3
 PETSC_ARCH=arch-linux2-c-opt
-export EIGEN_RHEO PETSC_DIR PETSC_ARCH OLDBASH
+export EIGEN_RHEO PETSC_DIR PETSC_ARCH
 
 %runscript
 exec /bin/bash /bin/echo "Not supported"
 
-%post -c /bin/bash
 # OpenFOAM expects bash - Singularity uses /bin/sh to exec scripts.
+%post -c /bin/bash
+
+export DEBIAN_FRONTEND=noninteractive
+# Turn on debugging
+set -x
 
 # Create some common mountpoints for systems without overlayfs
 mkdir /scratch
 mkdir /apps
 
+# Install Git
+apt-get update
+apt-get install -y git wget software-properties-common
+
+# OpenFOAM repo
+wget -O - https://dl.openfoam.org/gpg.key | apt-key add -
+add-apt-repository universe
+add-apt-repository http://dl.openfoam.org/ubuntu
+apt-get update
+apt-get install -y openfoam7
+
 # Source the bashrc for OpenFOAM
 . /opt/openfoam7/etc/bashrc
-
-# Install Git
-apt update
-apt install -y git
 
 # Install in /opt
 cd /opt
