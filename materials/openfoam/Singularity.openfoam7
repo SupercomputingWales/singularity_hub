@@ -30,3 +30,7 @@ add-apt-repository http://dl.openfoam.org/ubuntu
 apt-get update
 apt-get install -y openfoam7
 
+# Due to strange use of kernel feature need to strip ABI info
+# See: https://askubuntu.com/questions/1034313/ubuntu-18-4-libqt5core-so-5-cannot-open-shared-object-file-no-such-file-or-dir
+strip --remove-section=.note.ABI-tag /lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
+
