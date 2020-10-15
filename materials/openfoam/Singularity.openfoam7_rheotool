@@ -28,6 +28,11 @@ mkdir /apps
 apt-get update
 apt-get install -y git wget software-properties-common
 
+cd /tmp
+# Might be useful for visualisation.
+wget https://netix.dl.sourceforge.net/project/virtualgl/2.6.4/virtualgl_2.6.4_amd64.deb
+apt install -y ./virtualgl_2.6.4_amd64.deb
+
 # OpenFOAM repo
 wget -O - https://dl.openfoam.org/gpg.key | apt-key add -
 add-apt-repository universe
