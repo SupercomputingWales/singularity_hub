@@ -1,0 +1,23 @@
+Bootstrap:docker  
+From:centos:centos7.8.2003
+
+%labels
+MAINTAINER Thomas Green
+
+%environment
+
+%runscript
+exec /bin/bash /bin/echo "Not supported"
+
+%post  
+yum -y install yum-utils
+yum -y install epel-release
+yum -y groupinstall "Base"
+yum -y groupinstall "Development Tools"
+
+#Install R
+yum install R
+
+#Install Rstudio-server
+yum install rstudio-server
+
