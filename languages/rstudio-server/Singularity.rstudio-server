@@ -17,7 +17,7 @@ yum -y groupinstall "Base"
 yum -y groupinstall "Development Tools"
 
 #Install R
-yum install R
+yum -y install R
 
 #Install Rstudio-server
 cd /tmp
