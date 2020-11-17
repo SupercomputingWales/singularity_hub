@@ -33,3 +33,4 @@ apt-key add winehq.key
 apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
 apt-get update
 apt-get install -y winehq-stable
+apt-get install -y mono-complete
