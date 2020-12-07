@@ -1,5 +1,5 @@
 Bootstrap:docker  
-From:python:3.8.6
+From:python:3.7.9
 
 %labels
 MAINTAINER Thomas Green
@@ -18,13 +18,14 @@ mkdir /apps
 apt-get update
 apt-get install -y git
 
-# Install from pip
-
+# Create directory to store source files.
 mkdir -p /usr/src/
 cd /usr/src
 git clone https://github.com/deepmind/deepmind-research.git
-
 cd deepmind-research
+
+# Install from pip
+# Depends on tensorflow 1.14 so latest Python version supports that is 3.7.9. 
 
 pip install wheel
 pip install -r alphafold_casp13/requirements.txt
