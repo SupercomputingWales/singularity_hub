@@ -1,5 +1,5 @@
 Bootstrap:docker  
-From:mercury/indelible:6075cc1
+From:mercury/indelible:hg19only_d62cd07
 
 %labels
 MAINTAINER Thomas Green
