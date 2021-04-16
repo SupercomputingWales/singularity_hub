@@ -1,5 +1,5 @@
 Bootstrap:docker  
-From:bethgelab/deeplearning:cuda9.0-cudnn7
+From:bethgelab/deeplearning:cuda10.0-cudnn7
 
 %labels
 MAINTAINER Thomas Green
@@ -30,7 +30,9 @@ apt-get -y install python3-tk
 # Install from pip
 pip3 install --upgrade pip
 
-pip3 install tensorflow-gpu==1.8
+pip3 install tensorflow-gpu==1.13.1
+
+pip3 install ruamel_yaml
 
 pip3 install deeplabcut
 
